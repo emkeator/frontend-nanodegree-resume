@@ -1,5 +1,6 @@
 body,
 div,
+header,
 ul,
 li,
 p,
@@ -11,7 +12,12 @@ h5,
 h6 {
   padding: 0;
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: "Open Sans Condensed", sans-serif;
+  letter-spacing: 0.08em;
+}
+
+body {
+  background-color: #1d2731;
 }
 
 .clear-fix {
@@ -20,13 +26,60 @@ h6 {
 
 .education-entry,
 .work-entry,
-.project-entry {
+.mobile-project-entry {
   padding: 0 5%;
+  margin-bottom: 2%;
+}
+
+.mobile-project-entry img {
+  width: 95%;
+}
+
+#headerMenu {
+  height:auto;
+}
+
+.skills-container {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.welcome-message {
+  width: 50%;
+  text-align:center;
+  padding-top: 2%;
+}
+
+#skill-sector {
+  text-align: center;
+  width: 100%;
+}
+
+.project-entry {
+  padding:0;
+}
+
+.caption {
+  height: auto;
+}
+
+.fisheye-container {
+  padding: 0 5%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2%;
+  margin-top: 1%;
+}
+
+.fisheye-image {
+  transition:300ms;
+  padding: 0;
 }
 
 h1 {
   font-size: 40px;
-  color: #f5a623;
+  color: #0b3c5d;
   line-height: 48px;
   display: inline;
 }
@@ -34,7 +87,7 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999;
+  color: #328cc1;
   line-height: 29px;
   padding: 10px;
 }
@@ -49,7 +102,7 @@ h3 {
 h4 {
   font-weight: bold;
   font-size: 14px;
-  color: #4a4a4a;
+  #1d2731;
   line-height: 17px;
 }
 
@@ -58,14 +111,17 @@ h3,
 h4,
 h5 {
   padding: 10px 5%;
-
 }
 
+.online-heading {
+  padding: 0 0%;
+  margin-top: 2%;
+}
 
 .date-text {
   font-style: italic;
   font-size: 14px;
-  color: #999;
+  color: #d9b310;
   line-height: 16px;
   float: left;
 }
@@ -73,10 +129,9 @@ h5 {
 .location-text {
   font-style: italic;
   font-size: 14px;
-  color: #999;
+  color: #d9b310;
   line-height: 16px;
   float: right;
-
 }
 
 p {
@@ -85,8 +140,13 @@ p {
   line-height: 21px;
 }
 
+.pale-grey p {
+  color: #f2f6fc;
+}
+
 a {
-  color: #1199c3;
+  color: #22698e;
+  font-weight:600;
   text-decoration: none;
   margin-top: 10px;
   display: block;
@@ -95,41 +155,71 @@ a {
 .welcome-message {
   font-style: italic;
   font-size: 18px;
-  color: #f3f3f3;
+  color: #d9b310;
   line-height: 28px;
+  text-align: center;
 }
 
 #skills-h3 {
-  color: #f5ae23;
+  color: #d9b310;
   display: none;
+  text-align: center;
 }
 
 .orange {
-  background-color: #f5ae23;
+  background-color: #1d2731;;
 }
 
 .orange-text {
-  color: #f5ae23;
+  color: #d9b310;
 }
 
 .white-text {
-  font-weight: bold;
-  color: #fff;
+  font-weight: 300;
+  color: #328cc1;
 }
 
 .gray {
-  background-color: #f3f3f3;
+  background-color: #f2f6fc;
   padding-bottom: 10px;
   clear: both;
 }
-
-.dark-gray {
-  background-color: #4a4a4a;
+.pale-grey {
+  padding-bottom: 10px;
+  clear: both;
+  color: #f2f6fc;
 }
 
-/* TODO: Replace with image later */
-#header {
-  background-color: #484848;
+.dark-blue {
+  background-color: #1d2731;
+}
+
+#headerImg {
+  background-color: #fff;
+  background-image: url(../images/CAcoast.jpg);
+  background-size: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  text-align: center;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.name {
+  font-size: 200%;
+}
+
+.role {
+  font-size: 100%;
+  font-weight: 700;
+}
+
+.name,
+.role {
+  letter-spacing: .3em;
+  padding: 1% 0;
+  width: 100%;
 }
 
 .flex-box {
@@ -171,14 +261,15 @@ span {
   padding: 5px;
 }
 
-#lets-connect {
+#contacts {
   text-align: center;
+  padding-bottom: 20px;
 }
 
 /* Media queries to handle various device widths */
 
 @media only screen and (max-width: 1024px) {
-  #lets-connect {
+  #contacts {
     margin-top: 5%;
   }
 }
@@ -190,13 +281,25 @@ span {
 }
 
 @media only screen and (max-width: 750px) {
-  #lets-connect {
+  #contacts {
     margin-top: 10%;
   }
   .biopic {
     width: 150px;
   }
   .welcome-message {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 615px) {
+  #projects {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 615px) {
+  #mobileProjects {
     display: none;
   }
 }
@@ -213,9 +316,49 @@ span {
   padding-bottom: 5%;
 }
 
+@media only screen and (min-width: 450px) {
+  .name {
+    font-size: 300%;
+  }
+  .role {
+    font-size: 250%;
+  }
+}
+
+@media only screen and (min-width: 675px) {
+
+  .role {
+    font-size: 250%;
+  }
+  .name,
+  .role {
+    font-weight: 900;
+    letter-spacing: .5em;
+    padding: 2% 0;
+  }
+}
+
 @media only screen and (min-width: 750px) {
   #skills-h3,
   .biopic {
     display: block;
+    text-align: center;
+  }
+  #skill-sector {
+    width: 50%;
   }
 }
+
+@media only screen and (min-width: 820px) {
+  .name {
+    font-size: 400%;
+  }
+}
+
+/*Colors for reference*/
+/*#22698e;
+#328cc1;
+#1d2731;
+#d9b310;
+#f2f6fc;
+*/
