@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 
+<!-- This JavaScript is for my interactive resume website as assigned by Udacity.
+It is based off the Udacity basic skeleton code provided, as well as the
+directed code writing in the lessons. The rest is my own work. Signed: EK -->
+
 <!--
 This is an HTML document. It contains information about how elements in the website
 are arranged. In other words, it describes the layout of a website.
@@ -16,54 +20,59 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 -->
 <html>
 <head>
-  <!-- This tells the browser how to read the document. -->
   <meta charset="utf-8">
 
-  <!-- Tells the browser what the title of this page should be. -->
   <title>Resume</title>
 
-  <!-- Load the page styles. -->
+  <!-- Styles. -->
   <link href="css/style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Calligraffitti|Open+Sans+Condensed:300,700" rel="stylesheet">
 
+  <!-- Scripts -->
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://rawgithub.com/d3/d3-plugins/master/fisheye/fisheye.js"></script>
+  <!-- <script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script> -->
+  <script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBoog0h5QMgtbsn5EF5MVcK6vwFMnJr9Wk"></script>
+  <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoog0h5QMgtbsn5EF5MVcK6vwFMnJr9Wk&callback=initMap"type="text/javascript"></script>-->
 
-
-  <!--
-  Uncomment the <script> tag below when you're ready to add an interactive Google Map to your resume!
-  -->
-<!-- <script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script> -->
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
   <div id="main">
-    Hello world!   <!-- You'll be deleting this line in the course -->
-
     <!--
     Everything from here to the <script> tag below is the skeleton of your
     website. Your code will add information to each of the sections of the
     resume below. You can pretty easily figure out what each section will
     display by looking at the id or at what's written between the <h2> tags.
     -->
-    <div id="header" class="center-content clear-fix">
-      <ul id="topContacts" class="flex-box"></ul>
+    <header id="headerMenu" class="center-content clear-fix dark-blue">
+      <ul id="menu" class="flex-box"></ul>
+    </header>
+    <div id="headerImg" class="center-content clear-fix">
     </div>
-    <div style="clear: both;"></div>
-    <div id="workExperience" class="gray">
-      <h2>Work Experience</h2>
+    <div id="header" class="center-content clear-fix skills-container pale-grey">
+      <div id="skill-sector"></div>
     </div>
-    <div id="projects">
+    <div id="projects" name= "projects" class="gray">
       <h2>Projects</h2>
     </div>
-    <div id="education" class="gray">
+    <div id="mobileProjects" name= "projects" class="gray">
+      <h2>Projects</h2>
+    </div>
+    <div id="work" name="work" class="pale-grey">
+      <h2>Work Experience</h2>
+    </div>
+    <div id="education" name="education" class="gray">
       <h2>Education</h2>
     </div>
-    <div id="mapDiv">
-      <h2>Where I've Lived and Worked</h2>
-    </div>
-    <div id="lets-connect" class="dark-gray">
+    <div id="contacts" name="contacts" class="dark-blue">
       <h2 class="orange center-text">Let's Connect</h2>
         <ul id="footerContacts" class="flex-box">
       </ul>
+    </div>
+    <div id="mapDiv">
+      <h2>Where I've Lived and Worked</h2>
     </div>
   </div>
 
@@ -97,7 +106,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   dynamically when this website, index.html, is opened.
   -->
   <script src="js/resumeBuilder.js"></script>
-
+  <!-- <script src="js/projectSlide.js"></script> -->
 
   <!--
   These scripts are written in JavaScript. You'll be breaking them down as part of
@@ -129,16 +138,19 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
       document.getElementById('header').style.display = 'none';
     }
     if(document.getElementsByClassName('work-entry').length === 0) {
-      document.getElementById('workExperience').style.display = 'none';
+      document.getElementById('work').style.display = 'none';
     }
     if(document.getElementsByClassName('project-entry').length === 0) {
       document.getElementById('projects').style.display = 'none';
+    }
+    if(document.getElementsByClassName('mobile-project-entry').length === 0) {
+      document.getElementById('mobileProjects').style.display = 'none';
     }
     if(document.getElementsByClassName('education-entry').length === 0) {
       document.getElementById('education').style.display = 'none';
     }
     if(document.getElementsByClassName('flex-item').length === 0) {
-      document.getElementById('lets-connect').style.display = 'none';
+      document.getElementById('contacts').style.display = 'none';
     }
     if(document.getElementById('map') === null) {
       document.getElementById('mapDiv').style.display = 'none';
