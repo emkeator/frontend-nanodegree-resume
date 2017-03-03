@@ -96,6 +96,14 @@ var education = {
       "classRank": "Magna Cum Laude, with Honors",
       "url": "https://www.davidson.edu/"
     },
+    { "name": "University of St. Andrews",
+      "location": "St. Andrews, Fife, Scotland",
+      "majors": [],
+      "dates": "2014",
+      "degree": "Semester Abroad",
+      "classRank": "Art History, English Lit, and Medieval History",
+      "url": "http://www.st-andrews.ac.uk/"
+    },
     { "name": "The Bolles School",
       "location": "Jacksonville, FL",
       "dates": "2008-2012",
@@ -121,7 +129,7 @@ education.display = function() {
       $(".education-entry:last").append(HTMLschoolName.replace("%data%", school.name) + HTMLschoolDegree.replace("%data%", school.degree));
       $(".education-entry:last").append(HTMLschoolDates.replace("%data%", school.dates));
       $(".education-entry:last").append(HTMLschoolLocation.replace("%data%", school.location));
-      if (school.hasOwnProperty("majors")) {
+      if (school.hasOwnProperty("majors") && (school.majors.length > 0)) {
         $(".education-entry:last").append(HTMLschoolMajor.replace("%data%", school.majors[0]));
       }
       if (school.hasOwnProperty("classRank")) {
