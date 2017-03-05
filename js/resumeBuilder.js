@@ -39,7 +39,7 @@ bio.display = function() {
 //Skills
 bio.displaySkills = function() {
   $("#skill-sector").append(HTMLskillsStart);
-  if (bio.skills && bio.skills.length > 0){
+  if (bio.skills && bio.skills.length){
     for (var i = 0; i < bio.skills.length; i++) {
       var formattedSkills = HTMLskills.replace("%data%", bio.skills[i]);
       $("#skills").append(formattedSkills);
@@ -84,7 +84,7 @@ var education = {
     { "name": "DevMountain",
       "location": "Provo, UT",
       "majors": ["Full-Stack Web Development"],
-      "dates": "2017",
+      "dates": "Pending: July 17-October 13, 2017",
       "degree": "Certificate",
       "url": "https://devmountain.com/"
     },
@@ -94,6 +94,7 @@ var education = {
       "dates": "2012-2016",
       "degree": "B.S.",
       "classRank": "Magna Cum Laude, with Honors",
+      "releventCourses": "Bioinformatics (Python), Data Structures (Java), Statistics, Documentary Film, Digital Studies",
       "url": "https://www.davidson.edu/"
     },
     { "name": "University of St. Andrews",
@@ -101,14 +102,16 @@ var education = {
       "majors": [],
       "dates": "2014",
       "degree": "Semester Abroad",
-      "classRank": "Art History, English Lit, and Medieval History",
+      "releventCourses": "Art History, English Lit, and Medieval History",
       "url": "http://www.st-andrews.ac.uk/"
     },
     { "name": "The Bolles School",
       "location": "Jacksonville, FL",
+      "majors": [],
       "dates": "2008-2012",
       "degree": "High School Diploma",
       "classRank": "Salutatorian",
+      "releventCourses": "AP BC Calculus (5), Pre-Calculus, Algebra II",
       "url": "http://www.bolles.org/"
     }
 
@@ -129,11 +132,14 @@ education.display = function() {
       $(".education-entry:last").append(HTMLschoolName.replace("%data%", school.name) + HTMLschoolDegree.replace("%data%", school.degree));
       $(".education-entry:last").append(HTMLschoolDates.replace("%data%", school.dates));
       $(".education-entry:last").append(HTMLschoolLocation.replace("%data%", school.location));
-      if (school.hasOwnProperty("majors") && (school.majors.length > 0)) {
+      if (school.hasOwnProperty("majors") && school.majors.length) {
         $(".education-entry:last").append(HTMLschoolMajor.replace("%data%", school.majors[0]));
       }
       if (school.hasOwnProperty("classRank")) {
         $(".education-entry:last").append(HTMLschoolMajor.replace("Major: %data%", school.classRank));
+      }
+      if (school.hasOwnProperty("releventCourses")) {
+        $(".education-entry:last").append(HTMLschoolMajor.replace("Major: %data%", "Relevant Courses: "+school.releventCourses));
       }
     });
   }
@@ -192,7 +198,7 @@ work.display = function() {
 
     });
   }
-}
+};
 
 //Projects--Large Screen Display
 var projectImages = {
@@ -239,9 +245,7 @@ projectImages.initialDisplay = function() {
     document.getElementById(curImageID).style.width = String(width) + "%";
   }
   $("#projects").append(HTMLprojectCaption.replace("%data%", "<br><br>"));
-}
-
-projectImages.initialDisplay();
+};
 
 projectImages.fisheyeImage = function(num) {
   var rows = projectImages.projectImages.length;
@@ -267,6 +271,9 @@ projectImages.unfisheyeImage = function() {
 };
 
 projectImages.display = function() {
+
+  projectImages.initialDisplay();
+
   $( "#image0" ).mouseover(function() {
     projectImages.fisheyeImage(0);
   });
@@ -364,7 +371,7 @@ mobileProjects.display = function() {
       }
     });
   }
-}
+};
 
 //Header
 bio.display();
