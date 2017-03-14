@@ -39,7 +39,7 @@ bio.display = function() {
 //Skills
 bio.displaySkills = function() {
   $("#skill-sector").append(HTMLskillsStart);
-  if (bio.skills && bio.skills.length){
+  if (bio.skills && bio.skills.length > 0){
     for (var i = 0; i < bio.skills.length; i++) {
       var formattedSkills = HTMLskills.replace("%data%", bio.skills[i]);
       $("#skills").append(formattedSkills);
@@ -84,7 +84,7 @@ var education = {
     { "name": "DevMountain",
       "location": "Provo, UT",
       "majors": ["Full-Stack Web Development"],
-      "dates": "Pending: July 17-October 13, 2017",
+      "dates": "2017",
       "degree": "Certificate",
       "url": "https://devmountain.com/"
     },
@@ -94,7 +94,6 @@ var education = {
       "dates": "2012-2016",
       "degree": "B.S.",
       "classRank": "Magna Cum Laude, with Honors",
-      "releventCourses": "Bioinformatics (Python), Data Structures (Java), Statistics, Documentary Film, Digital Studies",
       "url": "https://www.davidson.edu/"
     },
     { "name": "University of St. Andrews",
@@ -102,16 +101,14 @@ var education = {
       "majors": [],
       "dates": "2014",
       "degree": "Semester Abroad",
-      "releventCourses": "Art History, English Lit, and Medieval History",
+      "classRank": "Art History, English Lit, and Medieval History",
       "url": "http://www.st-andrews.ac.uk/"
     },
     { "name": "The Bolles School",
       "location": "Jacksonville, FL",
-      "majors": [],
       "dates": "2008-2012",
       "degree": "High School Diploma",
       "classRank": "Salutatorian",
-      "releventCourses": "AP BC Calculus (5), Pre-Calculus, Algebra II",
       "url": "http://www.bolles.org/"
     }
 
@@ -132,14 +129,11 @@ education.display = function() {
       $(".education-entry:last").append(HTMLschoolName.replace("%data%", school.name) + HTMLschoolDegree.replace("%data%", school.degree));
       $(".education-entry:last").append(HTMLschoolDates.replace("%data%", school.dates));
       $(".education-entry:last").append(HTMLschoolLocation.replace("%data%", school.location));
-      if (school.hasOwnProperty("majors") && school.majors.length) {
+      if (school.hasOwnProperty("majors") && (school.majors.length > 0)) {
         $(".education-entry:last").append(HTMLschoolMajor.replace("%data%", school.majors[0]));
       }
       if (school.hasOwnProperty("classRank")) {
         $(".education-entry:last").append(HTMLschoolMajor.replace("Major: %data%", school.classRank));
-      }
-      if (school.hasOwnProperty("releventCourses")) {
-        $(".education-entry:last").append(HTMLschoolMajor.replace("Major: %data%", "Relevant Courses: "+school.releventCourses));
       }
     });
   }
@@ -198,44 +192,38 @@ work.display = function() {
 
     });
   }
-};
+}
 
 //Projects--Large Screen Display
 var projectImages = {
-  "nativeHeight": 371,
   "projectImages": [
-    {"name": "images/Portfolio1.jpg",
+    {"name": "images/cap.jpg",
     "nativeWidth": 500,
-    "caption": '<a href="#">Portfolio Site</a><div class="date-text">February 2017</div><p><br>Custom-designed and coded site using JavaScript to creatively display projects in an interactive resume site. Based code off of Udacity assignment skeleton provided, but extensively customized the JavaScript, CSS, and HTML to be more interactive, mobile-friendly, and responsive.<br><br><em>Image of portfolio page.</em></p>',
-    "url": 'https://github.com/emkeator/sample-portfolio-site'},
-    {"name": "images/Portfolio2.jpg",
+    "caption": '<a href="#">Project 1: Captain America</a><div class="date-text">1945</div><p><br>Don\'t have any projects yet, but if I\'m going to code all day long, I might as well look at something nice as a placeholder image...</p>'},
+    {"name": "images/cap2.jpg",
     "nativeWidth": 500,
-    "caption": '<a href="#">Portfolio Site</a><div class="date-text">February 2017</div><p><br>Custom-designed and coded site using JavaScript to creatively display projects in an interactive resume site. Based code off of Udacity assignment skeleton provided, but extensively customized the JavaScript, CSS, and HTML to be more interactive, mobile-friendly, and responsive.<br><br><em>How page displays on mobile format.</em></p>',
-    "url": 'https://github.com/emkeator/sample-portfolio-site'},
-    {"name": "images/Portfolio3.jpg",
+    "caption": '<a href="#">Project 2: Captain America</a><div class="date-text">1945</div><p><br>Don\'t have any projects yet, but if I\'m going to code all day long, I might as well look at something nice as a placeholder image...</p>'},
+    {"name": "images/cap.jpg",
     "nativeWidth": 500,
-    "caption": '<a href="#">Portfolio Site</a><div class="date-text">February 2017</div><p><br>Custom-designed and coded site using JavaScript to creatively display projects in an interactive resume site. Based code off of Udacity assignment skeleton provided, but extensively customized the JavaScript, CSS, and HTML to be more interactive, mobile-friendly, and responsive.<br><br><em>When images in portfolio are selected, modals pop-up.</em></p>',
-    "url": 'https://github.com/emkeator/sample-portfolio-site'},
-    {"name": "images/Arcade1.jpg",
+    "caption": '<a href="#">Project 3: Captain America</a><div class="date-text">1945</div><p><br>Don\'t have any projects yet, but if I\'m going to code all day long, I might as well look at something nice as a placeholder image...</p>'},
+    {"name": "images/cap2.jpg",
     "nativeWidth": 500,
-    "caption": '<a href="#">Arcade Game Clone</a><div class="date-text">March 2017</div><p><br>Clone of the classic arcade game Frogger, designed to be user-friendly and a delightful “Star Wars” game experience. Created a JavaScript app as part of Udacity assignment, customizing functions and Canvas drawings to my own design.<br><br><em>Image of the game screen.</em></p>',
-    "url": "https://github.com/emkeator/frontend-nanodegree-arcade-game"},
-    {"name": "images/Arcade2.jpg",
+    "caption": '<a href="#">Project 4: Captain America</a><div class="date-text">1945</div><p><br>Don\'t have any projects yet, but if I\'m going to code all day long, I might as well look at something nice as a placeholder image...</p>'},
+    {"name": "images/cap.jpg",
     "nativeWidth": 500,
-    "caption": '<a href="#">Arcade Game Clone</a><div class="date-text">March 2017</div><p><br>Clone of the classic arcade game Frogger, designed to be user-friendly and a delightful “Star Wars” game experience. Created a JavaScript app as part of Udacity assignment, customizing functions and Canvas drawings to my own design.<br><br><em>Image of the loss screen.</em></p>',
-    "url": "https://github.com/emkeator/frontend-nanodegree-arcade-game"},
-    {"name": "images/Arcade3.jpg",
+    "caption": '<a href="#">Project 5: Captain America</a><div class="date-text">1945</div><p><br>Don\'t have any projects yet, but if I\'m going to code all day long, I might as well look at something nice as a placeholder image...</p>'},
+    {"name": "images/cap2.jpg",
     "nativeWidth": 500,
-    "caption": '<a href="#">Arcade Game Clone</a><div class="date-text">March 2017</div><p><br>Clone of the classic arcade game Frogger, designed to be user-friendly and a delightful “Star Wars” game experience. Created a JavaScript app as part of Udacity assignment, customizing functions and Canvas drawings to my own design.<br><br><em>Image of the win screen.</em></p>',
-    "url": "https://github.com/emkeator/frontend-nanodegree-arcade-game"},
-    {"name": "images/ImageProcess1.jpg",
+    "caption": '<a href="#">Project 6: Captain America</a><div class="date-text">1945</div><p><br>Don\'t have any projects yet, but if I\'m going to code all day long, I might as well look at something nice as a placeholder image...</p>'},
+    {"name": "images/cap.jpg",
     "nativeWidth": 500,
-    "caption": '<a href="#">ImageJ Cell-Count Processor</a><div class="date-text">Fall 2015</div><p><br>Produced a Python program to process images of fluorescent cells, returning a CSV file of the total cell count and analyzed data. Class project, later used in Biology Honors Thesis research. Program accessed ImageJ (Java-based) software through Terminal; required outside-class study of Java.<br><br><em>Sample of Python code.<em><br><br><em>Code for this project not available online.<em></p>',
-    "url": "#"},
-    {"name": "images/ImageProcess2.jpg",
+    "caption": '<a href="#">Project 7: Captain America</a><div class="date-text">1945</div><p><br>Don\'t have any projects yet, but if I\'m going to code all day long, I might as well look at something nice as a placeholder image...</p>'},
+    {"name": "images/cap2.jpg",
     "nativeWidth": 500,
-    "caption": '<a href="#">ImageJ Cell-Count Processor</a><div class="date-text">Fall 2015</div><p><br>Produced a Python program to process images of fluorescent cells, returning a CSV file of the total cell count and analyzed data. Class project, later used in Biology Honors Thesis research. Program accessed ImageJ (Java-based) software through Terminal; required outside-class study of Java.<br><br><em>Demonstration of test code: sample images used in processing, and CSV file of data.<em><br><br><em>Code for this project not available online.<em></p>',
-    "url": "#"}
+    "caption": '<a href="#">Project 8: Captain America</a><div class="date-text">1945</div><p><br>Don\'t have any projects yet, but if I\'m going to code all day long, I might as well look at something nice as a placeholder image...</p>'},
+    {"name": "images/cap.jpg",
+    "nativeWidth": 500,
+    "caption": '<a href="#">Project 9: Captain America</a><div class="date-text">1945</div><p><br>Don\'t have any projects yet, but if I\'m going to code all day long, I might as well look at something nice as a placeholder image...</p>'}
   ]
 };
 
@@ -244,30 +232,24 @@ projectImages.initialDisplay = function() {
 
   $("#projects").append(HTMLprojectStart);
   for (var i = 0; i < rows; i++){
-    if (projectImages.projectImages[i].url != "#") {
-      var newImage = HTMLprojectImage.replace("%data%", projectImages.projectImages[i].name).replace('%_%', i).replace('%_%', i).replace("#", projectImages.projectImages[i].url);
-    } else {
-      var newImage = HTMLprojectImage.replace("%data%", projectImages.projectImages[i].name).replace('%_%', i).replace('%_%', i).replace("href=\"#\"", "");
-    }
+    var newImage = HTMLprojectImage.replace("%data%", projectImages.projectImages[i].name).replace('%_%', i);
     $(".fisheye-container:last").append(newImage);
-    var curLinkImageID = "linkImage"+ i;
     var curImageID = "image"+ i;
     var width = 100 / rows;
-    document.getElementById(curLinkImageID).style.width = String(width) + "%";
-    document.getElementById(curLinkImageID).style.height = String(projectImages.nativeHeight) + "px";
-    document.getElementById(curImageID).style.width = String(100) + "%";
-    document.getElementById(curImageID).style.height = String(100) + "%";
+    document.getElementById(curImageID).style.width = String(width) + "%";
   }
   $("#projects").append(HTMLprojectCaption.replace("%data%", "<br><br>"));
-};
+}
+
+projectImages.initialDisplay();
 
 projectImages.fisheyeImage = function(num) {
   var rows = projectImages.projectImages.length;
   var curImageWidth = projectImages.projectImages[num].nativeWidth;
-  document.getElementById("linkImage"+num).style.width = String(curImageWidth + "px");
+  document.getElementById("image"+num).style.width = String(curImageWidth + "px");
   for (i = 0; i < rows; i++) {
     if (i != num) {
-      var curImageID = "linkImage" + i;
+      var curImageID = "image" + i;
       document.getElementById(curImageID).style.width = "calc( (100% - " + curImageWidth + "px) / " + (rows - 1) +")";
     }
   }
@@ -277,7 +259,7 @@ projectImages.fisheyeImage = function(num) {
 projectImages.unfisheyeImage = function() {
   var rows = projectImages.projectImages.length;
   for (var j = 0; j < rows; j++){
-    var curImageID = "linkImage"+ j;
+    var curImageID = "image"+ j;
     var width = 100 / rows;
     document.getElementById(curImageID).style.width = String(width) + "%";
   }
@@ -285,9 +267,6 @@ projectImages.unfisheyeImage = function() {
 };
 
 projectImages.display = function() {
-
-  projectImages.initialDisplay();
-
   $( "#image0" ).mouseover(function() {
     projectImages.fisheyeImage(0);
   });
@@ -385,7 +364,7 @@ mobileProjects.display = function() {
       }
     });
   }
-};
+}
 
 //Header
 bio.display();
