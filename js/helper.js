@@ -43,7 +43,7 @@ var HTMLprojectCaption = '<div class="work-entry caption">%data%</div>';
 var HTMLprojectImage = '<a id="linkImage%_%" class="fisheye-image" href="#" target="blank"><img id="image%_%" class="fisheye-image" src="%data%"></a>';
 
 var mobileProjectStart = '<div class="mobile-project-entry"></div>';
-var mobileProjectTitle = '<a href="#">%data%</a>';
+var mobileProjectTitle = '<a href="#" target="blank">%data%</a>';
 var mobileProjectDates = '<div class="date-text">%data%</div>';
 var mobileProjectDescription = '<p><br>%data%</p>';
 var mobileProjectImage = '<img src="%data%">';
