@@ -2,7 +2,7 @@
 
 Based on a Udacity Online Resume project, I expanded, customized, and had some fun creating a sample online resume for myself. It is mobile, responsive, and made with JavaScript, CSS, and HTML.
 
-View it [here](https://emkeator.github.io/frontend-nanodegree-resume/#work).
+View it [here](https://emkeator.github.io/frontend-nanodegree-resume/).
 
 
 NOTE: This is a work in progress, as if I choose to use this as a real interactive resume, I will obviously have to add real projects to the "Projects" section, but in the meantime, enjoy the placeholder images of Captain America.
