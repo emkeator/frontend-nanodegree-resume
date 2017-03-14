@@ -355,20 +355,23 @@ projectImages.display = function() {
 //Projects--Mobile Display
 var mobileProjects = {
   "projects": [
-    { "title": "Project 1: Captain America",
-      "dates": "1945",
-      "description": "If I\'m going to code all day long, I might as well look at something nice as a placeholder image...",
-      "images": ["images/cap.jpg", "images/cap2.jpg"]
+    { "title": "Portfolio Site",
+      "dates": "February 2017",
+      "description": "Custom-designed and coded site using JavaScript to creatively display projects in an interactive resume site. Based code off of Udacity assignment skeleton provided, but extensively customized the JavaScript, CSS, and HTML to be more interactive, mobile-friendly, and responsive.",
+      "images": ["images/Portfolio1.jpg", "images/Portfolio3.jpg"],
+      "url": 'https://github.com/emkeator/sample-portfolio-site'
     },
-    { "title": "Project 2: Captain America",
-      "dates": "1945",
-      "description": "If I\'m going to code all day long, I might as well look at something nice as a placeholder image...",
-      "images": ["images/cap.jpg", "images/cap2.jpg"]
+    { "title": "Arcade Game Clone",
+      "dates": "March 2017",
+      "description": "Clone of the classic arcade game Frogger, designed to be user-friendly and a delightful “Star Wars” game experience. Created a JavaScript app as part of Udacity assignment, customizing functions and Canvas drawings to my own design.",
+      "images": ["images/Arcade1.jpg", "images/Arcade2.jpg"],
+      "url": "https://github.com/emkeator/frontend-nanodegree-arcade-game"
     },
-    { "title": "Project 3: Captain America",
-      "dates": "1945",
-      "description": "If I\'m going to code all day long, I might as well look at something nice as a placeholder image...",
-      "images": ["images/cap.jpg", "images/cap2.jpg"]
+    { "title": "ImageJ Cell-Count Processor",
+      "dates": "Fall 2015",
+      "description": "Produced a Python program to process images of fluorescent cells, returning a CSV file of the total cell count and analyzed data. Class project, later used in Biology Honors Thesis research. Program accessed ImageJ (Java-based) software through Terminal; required outside-class study of Java. <em>Code for this project not available online.</em>",
+      "images": ["images/ImageProcess1.jpg", "images/ImageProcess2.jpg"],
+      "url": "#"
     }
   ]
 };
@@ -377,7 +380,11 @@ mobileProjects.display = function() {
   if(mobileProjects.projects && mobileProjects.projects.length > 0) {
     mobileProjects.projects.forEach(function(project) {
       $("#mobileProjects").append(mobileProjectStart);
-      $(".mobile-project-entry:last").append(mobileProjectTitle.replace("%data%", project.title));
+      if (project.url != "#") {
+        $(".mobile-project-entry:last").append(mobileProjectTitle.replace("%data%", project.title).replace("#", project.url));
+      } else {
+        $(".mobile-project-entry:last").append(mobileProjectTitle.replace("%data%", project.title).replace("href=\"#\"", ""));
+      }
       $(".mobile-project-entry:last").append(mobileProjectDates.replace("%data%", project.dates));
       $(".mobile-project-entry:last").append(mobileProjectDescription.replace("%data%", project.description));
       for (var i = 0; i < project.images.length; i++) {
