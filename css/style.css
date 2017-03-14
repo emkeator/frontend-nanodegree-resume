@@ -20,6 +20,14 @@ body {
   background-color: #1d2731;
 }
 
+a {
+  color: #22698e;
+  font-weight:600;
+  text-decoration: none;
+  margin-top: 10px;
+  display: block;
+}
+
 .clear-fix {
   overflow: auto;
 }
@@ -75,6 +83,7 @@ body {
 .fisheye-image {
   transition:300ms;
   padding: 0;
+  margin:0;
 }
 
 h1 {
@@ -142,14 +151,6 @@ p {
 
 .pale-grey p {
   color: #f2f6fc;
-}
-
-a {
-  color: #22698e;
-  font-weight:600;
-  text-decoration: none;
-  margin-top: 10px;
-  display: block;
 }
 
 .welcome-message {

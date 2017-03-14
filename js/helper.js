@@ -40,7 +40,7 @@ var HTMLworkDescription = '<p><br>%data%</p>';
 
 var HTMLprojectStart = '<div class="project-entry fisheye-container"></div>';
 var HTMLprojectCaption = '<div class="work-entry caption">%data%</div>';
-var HTMLprojectImage = '<img class="fisheye-image" id="image%_%" src="%data%">';
+var HTMLprojectImage = '<a id="linkImage%_%" class="fisheye-image" href="#" target="blank"><img id="image%_%" class="fisheye-image" src="%data%"></a>';
 
 var mobileProjectStart = '<div class="mobile-project-entry"></div>';
 var mobileProjectTitle = '<a href="#">%data%</a>';
