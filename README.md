@@ -1,4 +1,12 @@
-# Project Details
+# Sample Interactive Resume Site
+
+Based on a Udacity Online Resume project, I expanded, customized, and had some fun creating a sample online resume for myself. It is mobile, responsive, and made with JavaScript, CSS, and HTML.
+
+
+NOTE: This is a work in progress, as if I choose to use this as a real interactive resume, I will obviously have to add real projects to the "Projects" section, but in the meantime, enjoy the placeholder images of Captain America.
+
+
+# ORIGINAL UDACITY INSTRUCTIONS:
 ## How do I complete this project?
 Review the Online Resume [Project Rubric](https://review.udacity.com/?_ga=1.189245867.12280332.1465333852#!/projects/2962818615/rubric).
 
