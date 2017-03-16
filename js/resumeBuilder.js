@@ -6,11 +6,12 @@ var bio = {
   "name": "Emily Keator",
   "role": "Web Developer",
   "contacts": {
-    "mobile": "555-555-5555",
-    "email": "emkeator@gmail.com",
-    "github": "emkeator",
-    "twitter": "@emkeator",
-    "location": "Park City, UT"
+    "mobile": ["555-555-5555", "#"],
+    "email": ["emkeator@gmail.com", "mailto:emkeator@gmail.com"],
+    "github": ["emkeator", "https://github.com/emkeator"],
+    "twitter": ["@emkeator", "https://twitter.com/emkeator"],
+    "linkedin": ["Emily Keator", "https://www.linkedin.com/in/emkeator"],
+    "location": ["Park City, UT", "https://www.google.com/maps/place/Park+City,+UT"]
   },
   "welcomeMessage": "Welcome to my inteactive resume. A little bit about me: I've lived all around the country, I have an interest in hiking, skiing, runnning, ballet, cooking--and coding! Despite majoring in Biology in college, I fell in love with coding and have been working in tech ever since.",
   "skills": ["Python", "Java", "JS", "HTML/CSS", "Proficiency in Spanish"],
@@ -50,23 +51,19 @@ bio.displaySkills = function() {
 //Contacts
 bio.displayContacts = function() {
 
-  var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-  var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-  var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-  var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-  var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-
-  // $("#topContacts").append(formattedMobile);
-  // $("#topContacts").append(formattedEmail);
-  // $("#topContacts").append(formattedGithub);
-  // $("#topContacts").append(formattedTwitter);
-  // $("#topContacts").append(formattedLocation);
+  // var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+  var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email[0]).replace("#", bio.contacts.email[1]);
+  var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github[0]).replace("#", bio.contacts.github[1]);
+  var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter[0]).replace("#", bio.contacts.twitter[1]);
+  var formattedLinkedIn = HTMLcontactGeneric.replace("%data%", bio.contacts.linkedin[0]).replace("%contact%", "linkedin").replace("#", bio.contacts.linkedin[1]);
+  var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location[0]).replace("#", bio.contacts.location[1]);
 
   //footer
-  $("#footerContacts").append(formattedMobile);
+  //$("#footerContacts").append(formattedMobile);
   $("#footerContacts").append(formattedEmail);
   $("#footerContacts").append(formattedGithub);
   $("#footerContacts").append(formattedTwitter);
+  $("#footerContacts").append(formattedLinkedIn);
   $("#footerContacts").append(formattedLocation);
 };
 
@@ -120,7 +117,7 @@ var education = {
     { "school": "Udacity",
       "title": "Front-End Web Development",
       "dates": "2016-2017",
-      "url": "https://www.udacity.com/"
+      "url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
     }
   ]
 };
@@ -129,7 +126,7 @@ education.display = function() {
   if(education.schools && education.schools.length > 0) {
     education.schools.forEach(function(school) {
       $("#education").append(HTMLschoolStart);
-      $(".education-entry:last").append(HTMLschoolName.replace("%data%", school.name) + HTMLschoolDegree.replace("%data%", school.degree));
+      $(".education-entry:last").append(HTMLschoolName.replace("%data%", school.name).replace("#", school.url) + HTMLschoolDegree.replace("%data%", school.degree));
       $(".education-entry:last").append(HTMLschoolDates.replace("%data%", school.dates));
       $(".education-entry:last").append(HTMLschoolLocation.replace("%data%", school.location));
       if (school.hasOwnProperty("majors") && school.majors.length) {
@@ -148,9 +145,9 @@ education.display = function() {
   if(education.onlineCourses && education.onlineCourses.length > 0) {
     $(".education-entry:last").append(HTMLonlineClasses);
     education.onlineCourses.forEach(function(course) {
-      $(".education-entry:last").append(HTMLonlineTitle.replace("%data%", course.title) + HTMLonlineSchool.replace("%data%", course.school));
+      $(".education-entry:last").append(HTMLonlineTitle.replace("%data%", course.title).replace("#", course.url) + HTMLonlineSchool.replace("%data%", course.school));
       $(".education-entry:last").append(HTMLonlineDates.replace("%data%", course.dates));
-      $(".education-entry:last").append(HTMLonlineURL.replace("%data%", course.url));
+      // $(".education-entry:last").append(HTMLonlineURL.replace("%data%", course.url));
     });
 
   }
@@ -164,25 +161,29 @@ var work = {
       "dates": "June 6, 2016 - Present",
       "title": "Post-baccalaureate Fellow",
       "location": "Bethesda, MD",
-      "description": "Fellow in neuroscience lab at the National Institute of Mental Health; focus on genetic engineering within the lab."
+      "description": "Fellow in neuroscience lab at the National Institute of Mental Health; focus on genetic engineering within the lab.",
+      "url": "https://www.training.nih.gov/programs/postbac_irta"
     },
     { "employer": "Davidson College",
       "dates": "2013 - 2016",
       "title": "Biology Tutor",
       "location": "Davidson, NC",
-      "description": "Tutored peers on biology & related subjects, 8-10 hours/week."
+      "description": "Tutored peers on biology & related subjects, 8-10 hours/week.",
+      "url": "https://www.davidson.edu/offices/ctl"
     },
     { "employer": "The Jackson Laboratory",
       "dates": "Summer 2014 & 2015",
       "title": "Summer Student",
       "location": "Bar Harbor, ME",
-      "description": "Genetic engineering summer fellowship."
+      "description": "Genetic engineering summer fellowship.",
+      "url": "https://www.jax.org/education-and-learning/high-school-students-and-undergraduates/learn-earn-and-explore"
     },
     { "employer": "Camp Fernwood Summer Camp for Girls",
       "dates": "Summer 2013",
       "title": "Counselor",
       "location": "Poland, ME",
-      "description": "Rock climbing & ballet counselor; live-in \'bunk mom\' for cabin of 12 girls, ages 8-9."
+      "description": "Rock climbing & ballet counselor; live-in \'bunk mom\' for cabin of 12 girls, ages 8-9.",
+      "url": "http://www.campfernwood.com/"
     }
   ]
 };
@@ -191,7 +192,7 @@ work.display = function() {
   if(work.jobs && work.jobs.length > 0) {
     work.jobs.forEach(function(job) {
       $("#work").append(HTMLworkStart);
-      $(".work-entry:last").append(HTMLworkEmployer.replace("%data%", job.employer) + HTMLworkTitle.replace("%data%", job.title));
+      $(".work-entry:last").append(HTMLworkEmployer.replace("%data%", job.employer).replace("#", job.url) + HTMLworkTitle.replace("%data%", job.title));
       $(".work-entry:last").append(HTMLworkDates.replace("%data%", job.dates));
       $(".work-entry:last").append(HTMLworkLocation.replace("%data%", job.location));
       $(".work-entry:last").append(HTMLworkDescription.replace("%data%", job.description));
@@ -206,16 +207,16 @@ var projectImages = {
   "projectImages": [
     {"name": "images/Portfolio1.jpg",
     "nativeWidth": 500,
-    "caption": '<a href="#">Portfolio Site</a><div class="date-text">February 2017</div><p><br>Custom-designed and coded site using JavaScript to creatively display projects in an interactive resume site. Based code off of Udacity assignment skeleton provided, but extensively customized the JavaScript, CSS, and HTML to be more interactive, mobile-friendly, and responsive.<br><br><em>Image of portfolio page.</em></p>',
-    "url": 'https://github.com/emkeator/sample-portfolio-site'},
+    "caption": '<a href="#">Portfolio Site</a><div class="date-text">February 2017</div><p><br>Designed a responsive, mobile personal website using HTML, CSS, JavaScript, Bootstrap framework, and some original framework design. Very basic code skeleton originally developed in a Udacity assignment, but expanded and customized; produced all photographs as well.<br><br><em>Image of portfolio page.</em></p>',
+    "url": 'https://emkeator.github.io/emkeator/'},
     {"name": "images/Portfolio2.jpg",
     "nativeWidth": 500,
-    "caption": '<a href="#">Portfolio Site</a><div class="date-text">February 2017</div><p><br>Custom-designed and coded site using JavaScript to creatively display projects in an interactive resume site. Based code off of Udacity assignment skeleton provided, but extensively customized the JavaScript, CSS, and HTML to be more interactive, mobile-friendly, and responsive.<br><br><em>How page displays on mobile format.</em></p>',
-    "url": 'https://github.com/emkeator/sample-portfolio-site'},
+    "caption": '<a href="#">Portfolio Site</a><div class="date-text">February 2017</div><p><br>Designed a responsive, mobile personal website using HTML, CSS, JavaScript, Bootstrap framework, and some original framework design. Very basic code skeleton originally developed in a Udacity assignment, but expanded and customized; produced all photographs as well.<br><br><em>When images in portfolio are selected, modals pop-up.</em></p>',
+    "url": 'https://emkeator.github.io/emkeator/'},
     {"name": "images/Portfolio3.jpg",
     "nativeWidth": 500,
-    "caption": '<a href="#">Portfolio Site</a><div class="date-text">February 2017</div><p><br>Custom-designed and coded site using JavaScript to creatively display projects in an interactive resume site. Based code off of Udacity assignment skeleton provided, but extensively customized the JavaScript, CSS, and HTML to be more interactive, mobile-friendly, and responsive.<br><br><em>When images in portfolio are selected, modals pop-up.</em></p>',
-    "url": 'https://github.com/emkeator/sample-portfolio-site'},
+    "caption": '<a href="#">Portfolio Site</a><div class="date-text">February 2017</div><p><br>Designed a responsive, mobile personal website using HTML, CSS, JavaScript, Bootstrap framework, and some original framework design. Very basic code skeleton originally developed in a Udacity assignment, but expanded and customized; produced all photographs as well.<br><br><em>How page displays on mobile format.</em></p>',
+    "url": 'https://emkeator.github.io/emkeator/'},
     {"name": "images/Arcade1.jpg",
     "nativeWidth": 500,
     "caption": '<a href="#">Arcade Game Clone</a><div class="date-text">March 2017</div><p><br>Clone of the classic arcade game Frogger, designed to be user-friendly and a delightful “Star Wars” game experience. Created a JavaScript app as part of Udacity assignment, customizing functions and Canvas drawings to my own design.<br><br><em>Image of the game screen.</em></p>',
@@ -357,9 +358,9 @@ var mobileProjects = {
   "projects": [
     { "title": "Portfolio Site",
       "dates": "February 2017",
-      "description": "Custom-designed and coded site using JavaScript to creatively display projects in an interactive resume site. Based code off of Udacity assignment skeleton provided, but extensively customized the JavaScript, CSS, and HTML to be more interactive, mobile-friendly, and responsive.",
+      "description": "Designed a responsive, mobile personal website using HTML, CSS, JavaScript, Bootstrap framework, and some original framework design. Very basic code skeleton originally developed in a Udacity assignment, but expanded and customized; produced all photographs as well.",
       "images": ["images/Portfolio1.jpg", "images/Portfolio3.jpg"],
-      "url": 'https://github.com/emkeator/sample-portfolio-site'
+      "url": 'https://emkeator.github.io/emkeator/'
     },
     { "title": "Arcade Game Clone",
       "dates": "March 2017",
