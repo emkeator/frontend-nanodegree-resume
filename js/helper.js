@@ -55,9 +55,10 @@ var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
 
-var HTMLonlineClasses = '<h3 class="online-heading">Online Classes</h3>';
+var HTMLonlineClasses = '<h2 class="online-heading">Online Classes</h2>';
+var HTMLonlineStart = '<div class="education-entry"></div>';
 var HTMLonlineTitle = '<a href="#" target="blank">%data%';
-var HTMLonlineSchool = ' - %data%</a>';
+var HTMLonlineSchool = ' -- %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
 var HTMLonlineURL = '<br><a href="#">%data%</a>';
 

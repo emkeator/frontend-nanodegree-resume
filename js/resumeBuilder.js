@@ -115,6 +115,11 @@ var education = {
   ],
   "onlineCourses": [
     { "school": "Udacity",
+      "title": "Deep Learning Foundation",
+      "dates": "2017",
+      "url": "https://www.udacity.com/course/deep-learning-nanodegree-foundation--nd101"
+    },
+    { "school": "Udacity",
       "title": "Front-End Web Development",
       "dates": "2016-2017",
       "url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
@@ -136,22 +141,20 @@ education.display = function() {
         $(".education-entry:last").append(HTMLschoolMajor.replace("Major: %data%", school.classRank));
       }
       if (school.hasOwnProperty("releventCourses")) {
-        $(".education-entry:last").append(HTMLschoolMajor.replace("Major: %data%", "Relevant Courses: "+school.releventCourses));
+        $(".education-entry:last").append(HTMLschoolMajor.replace("Major: %data%", "Relevant Courses: " + school.releventCourses));
       }
     });
   }
 
+  $("#education").append(HTMLonlineClasses);
 
   if(education.onlineCourses && education.onlineCourses.length > 0) {
-    $(".education-entry:last").append(HTMLonlineClasses);
     education.onlineCourses.forEach(function(course) {
+      $("#education").append(HTMLonlineStart);
       $(".education-entry:last").append(HTMLonlineTitle.replace("%data%", course.title).replace("#", course.url) + HTMLonlineSchool.replace("%data%", course.school));
       $(".education-entry:last").append(HTMLonlineDates.replace("%data%", course.dates));
-      // $(".education-entry:last").append(HTMLonlineURL.replace("%data%", course.url));
     });
-
   }
-
 };
 
 //Work

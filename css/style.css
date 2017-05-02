@@ -33,10 +33,17 @@ a {
 }
 
 .education-entry,
+.online-heading,
 .work-entry,
 .mobile-project-entry {
   padding: 0 5%;
   margin-bottom: 2%;
+}
+
+.education-entry {
+  border-style: solid;
+  border-color: #f2f6fc;
+  border-width: thin;
 }
 
 .mobile-project-entry img {
@@ -123,8 +130,11 @@ h5 {
 }
 
 .online-heading {
-  padding: 0;
   margin-top: 2%;
+  font-style: italic;
+  font-size: 20px;
+  color: #000;
+  line-height: 22px;
 }
 
 .date-text {
